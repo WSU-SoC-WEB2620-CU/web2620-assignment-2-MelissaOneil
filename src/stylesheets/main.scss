@@ -1,1 +1,48 @@
 // Your styles go here
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body {
+    display: flex;
+    background-color: #eff0f2;
+    flex-direction: column;
+    height: 100vh;
+}
+.five-boxes, .four-boxes {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.box {
+    flex: 1 1 20%;
+    margin: .5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* Medium screens */
+@media all and (min-width: 800px) {
+    
+}
+
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    .five-boxes {
+        flex-direction: column;
+    }
+    .four-boxes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .box {
+        margin: .2rem 0;
+    }
+    
+}
