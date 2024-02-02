@@ -1,9 +1,23 @@
 // Your styles go here
 html {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
 }
 *, *:before, *:after{
     box-sizing: inherit;
+}
+.header > .box, .footer > .box{
+    height: 50px;
+    background-color: aqua;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.nav > .box {
+    background-color: black;
+    color: black;//comment out
 }
 body {
     display: flex;
@@ -11,38 +25,149 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-.five-boxes, .four-boxes {
+.five-boxes{
     display: flex;
     flex-wrap: nowrap;
 }
 .box {
-    flex: 1 1 20%;
-    margin: .5rem;
-    padding: 1rem;
-    background-color: #fff;
-    border: 1px solid #000;
+    margin: .3rem;
+    padding: .25rem;
+    //border: 1px solid #000;
     border-radius: 5px;
     text-align: center;
 }
+.large-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    //border: 1px solid #000;
+}
+.large-box {
+    flex: 1;
+    order: 1;
+}
+.large-box .box{
+    height: 400px;
+    background-color: aqua;
+}
+.main-container {
+    flex:1;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+}
+.medium-box{
+    flex: 1 1 100%;
+    order: 1;
+    //border: 1px solid #000;
+}
+.four-boxes {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: 2;
+    //border: 1px solid #000;
+    color: black;
+}
+.medium-box .box{
+    background-color: aqua;
+    margin-left: 10px;
+    height: 200px;
+}
+.four-boxes > .box {
+    background-color: black;
+    //color: aqua;//comment out
+    width: 200px;
+    height: 85px;
+}
+.nav > .box {
+    width: 150px;
+}
 
 
-/* Medium screens */
-@media all and (min-width: 800px) {
+
+
+/* Medium screens *********************************************/
+@media all and (min-width: 500px) and (max-width: 800px) {
+    .large-container{
+        display: block;
+    }
+    .medium-box{
+        flex: 1 1 100%;
+        order: 2;       
+    }
+    .medium-box > .box {
+        height: 110px;
+    }
+    .four-boxes > .box {
+        width: 150px;
+    }
+    .main-container {
+        display: flex;
+        align-items: stretch;
+        flex-direction: row;
+        //border: 1px solid #000;
+    }
+    .four-boxes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        order: 1;
+    }
+    .four-boxes > .box {
+        height: 45px;
+    }    
+      
+    
     
 }
 
 
-/* Small screens */
+/* Small screens *************************************************/
 @media all and (max-width: 500px) {
-    .five-boxes {
+    .nav {
         flex-direction: column;
     }
     .four-boxes {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        flex: 0 0 calc(50% - .5rem);
+        order: 1;
+    }
+    .four-boxes > .box {
+        height: 45px;
+    } 
+    .medium-box{
+        flex: 1 1 100%;
+        order: 2;
+    }
+    .medium-box > .box {
+        height: 210px;
     }
     .box {
-        margin: .2rem 0;
+        margin: 5px 0;
+    }
+    
+    .nav {
+        flex-direction: column;
+    }
+    .nav > .box {
+        height: 20px;
+        width: 100%;
+    }
+    .large-box {
+        flex: 2 1 100%;
+    }
+    .main-container {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    .large-container{
+        display: block;
     }
     
 }
